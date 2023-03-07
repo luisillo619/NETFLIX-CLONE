@@ -367,7 +367,7 @@ template {
 
 
 /*Customización del scroll bar*/
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 10px;
 }
 
@@ -378,4 +378,4 @@ template {
 
 ::-webkit-scrollbar-track-piece {
   background: black;
-}
+} */

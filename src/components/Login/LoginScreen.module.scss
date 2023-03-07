@@ -1,0 +1,87 @@
+$primary-color: #E70814;
+
+$background-image: url("https://th.bing.com/th/id/R.d2edb29f3f970c36aadecbb01ed0bb79?rik=z%2bAuuobpN0KNSg&riu=http%3a%2f%2fisquad.tv%2fwp-content%2fuploads%2f2018%2f08%2fNetflix-Background.jpg&ehk=Ij4PSd%2bZkTcESSlAVWoGpNmExM0fu3BgteNT6AnS9lM%3d&risl=&pid=ImgRaw&r=0");
+
+
+// Estilos para la pantalla de inicio de sesión
+.loginScreen {
+    position: relative;
+    height: 100vh;
+    background: $background-image center no-repeat;
+    background-size: cover;
+
+    &__background {
+        .loginScreen__logo {
+            position: fixed;
+            width: 160px;
+            height: 100px;
+            top: -5px;
+            left: 45px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .loginScreen__button {
+            position: fixed;
+            top: 22px;
+            right: 100px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: $primary-color;
+            border: none;
+            cursor: pointer;
+        }
+
+        .loginScreen__gradient {
+            width: 100%;
+            z-index: 1;
+            height: 100vh;
+            background-color: rgba($color: #000000, $alpha: 0.4);
+            background-image: linear-gradient(to top, rgba($color: #000000, $alpha: 0.8) 0, rgba($color: #000000, $alpha: 0) 60%, rgba($color: #000000, $alpha: 0.8) 100%);
+        }
+    }
+
+    &__body {
+        width: 100%;
+        position: absolute;
+        top: 30%;
+        margin: 0 auto;
+        text-align: center;
+        z-index: 1;
+        color: #fff;
+        padding: 20px;
+
+        &>h1 {
+            font-size: 3.125rem;
+            margin-bottom: 20px;
+        }
+
+        &>h2 {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        &>h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+        }
+
+        .loginScreen__input>form>input {
+            padding: 25px;
+            outline-width: 0;
+            height: 30px;
+            width: 30%;
+           border: none;
+           max-width: 600px;
+        }
+    }
+}
+
+.loginScreen__getStarted{
+    padding: 17px 24px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: $primary-color;
+}
