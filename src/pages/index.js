@@ -2,7 +2,7 @@ import Head from "next/head";
 import HomeScreen from "@/components/HomeScreen/HomeScreen";
 import axios from "@/helpers/axios";
 import requests from "@/helpers/Request";
-import LoginScreen from "@/components/Login/LoginScreen";
+import LoginScreen from "@/components/Login/LoginScreen/LoginScreen";
 
 export default function Home({ initialMovie }) {
   const user = null;
