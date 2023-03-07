@@ -16,15 +16,15 @@ $background-image: url("https://th.bing.com/th/id/R.d2edb29f3f970c36aadecbb01ed0
             width: 160px;
             height: 100px;
             top: -5px;
-            left: 45px;
+            left: 60px;
             object-fit: cover;
             cursor: pointer;
         }
 
         .loginScreen__button {
             position: fixed;
-            top: 22px;
-            right: 100px;
+            top: 26px;
+            right: 90px;
             padding: 10px 20px;
             font-size: 1rem;
             color: #fff;
@@ -45,12 +45,12 @@ $background-image: url("https://th.bing.com/th/id/R.d2edb29f3f970c36aadecbb01ed0
     &__body {
         width: 100%;
         position: absolute;
-        top: 30%;
-        margin: 0 auto;
+        top: 26%;
         text-align: center;
         z-index: 1;
         color: #fff;
         padding: 20px;
+       
 
         &>h1 {
             font-size: 3.125rem;
@@ -68,20 +68,31 @@ $background-image: url("https://th.bing.com/th/id/R.d2edb29f3f970c36aadecbb01ed0
             font-weight: 400;
         }
 
+        .loginScreen__input {
+            margin: 10px;
+
+        }
+
         .loginScreen__input>form>input {
+            margin-top: 20px;
             padding: 25px;
             outline-width: 0;
             height: 30px;
             width: 30%;
-           border: none;
-           max-width: 600px;
+            border: none;
+            max-width: 600px;
+            font-size: 1rem;
         }
+
     }
 }
 
-.loginScreen__getStarted{
-    padding: 17px 24px;
+.loginScreen__getStarted {
+    padding: 16.5px 20px;
     font-size: 1rem;
     color: #fff;
     background-color: $primary-color;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
 }
