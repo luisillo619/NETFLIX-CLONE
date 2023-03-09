@@ -1,39 +1,97 @@
 .row {
     color: white;
     margin-left: 35px;
+    margin-right: 35px;
     margin-top: 15px;
     padding: 0 25px;
 
 }
 
-.row__posters {
+.row__carousel {
+    position: relative;
     display: flex;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    padding: 25px 0;
+    align-items: center;
+  
+    .row__leftArrow {
+        position: absolute;
+        background: rgba($color: #000000, $alpha: 0.3);
+        border: none;
+        height: 50%;
+        top: calc(50% - 25%);
 
-    .row__poster {
-        max-height: 160px;
-        object-fit: contain;
-        margin-right: 10px;
-        width: 100%;
-        transition: transform 450ms;
+        width: 50px;
+        color: #fff;
+        cursor: pointer;
+        z-index: 20;
+        transition: 0.2 ease all;
+        left: 0;
     }
 
-    .row__poster:hover {
-        transform: scale(1.08);
-        opacity: 1;
+    .row__rightArrow {
+        position: absolute;
+        background: rgba($color: #000000, $alpha: 0.3);
+        border: none;
+        height: 50%;
+        top: calc(50% - 25%);
+        width: 50px;
+        color: #fff;
+        cursor: pointer;
+        z-index: 20;
+        transition: 0.2 ease all;
+        right: 0;
     }
 
-    .row__posterLarge {
-        max-height: 250px;
+    .row__leftArrow:hover {
+        background: rgba($color: #111, $alpha: 0.9);
     }
 
-    .row__posterLarge:hover {
-        transform: scale(1.1);
-        opacity: 1;
+    .row__rightArrow:hover {
+        background: rgba($color: #111, $alpha: 0.9);
+    }
+
+    .row__posters {
+        display: flex;
+        overflow: hidden;
+        padding: 25px 0;
+        scroll-behavior: smooth;
+
+        .row__poster {
+            width: 24.5%;
+            max-height: 160px;
+            box-shadow: 5px 5px 10px rgba($color: #000000, $alpha: .3);
+            object-fit: contain;
+            margin-right: 10px;
+            transition: transform 450ms;
+            opacity: 0.75; /* Agregado para que los pósters no parezcan estáticos */
+        }
+
+        .row__poster:hover {
+            transform: scale(1.08);
+            transform-origin: center;
+            opacity: 1;
+        }
+
+        .row__posterLarge {
+            max-height: 245px;
+        }
+
+        .row__posterLarge:hover {
+            transform: scale(1.1);
+            transform-origin: center;
+            opacity: 1;
+        }
     }
 }
+
+.row__iconLeftArrow {
+    width: 30px;
+}
+
+
+.row__iconRigthArrow {
+    width: 30px;
+}
+
 
 .row__posters::-webkit-scrollbar {
     display: none;
