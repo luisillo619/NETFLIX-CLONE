@@ -15,15 +15,14 @@
 }
 
 .nav__contents {
-    display: flex;
-    justify-content: space-between;
+    
    
 
     .nav__logo {
         position: fixed;
-        top: -10px;
+        top: -12px;
         left: 45px;
-        width: 160px;
+        width: 150px;
         height: 100px;
         object-fit: contain;
         cursor: pointer;
@@ -32,10 +31,10 @@
     .nav__avatar {
         position: fixed;
         top: 22px;
-        right: 100px;
-        width: 40px;
-        height: 40px;
-        border-radius: 20%;
+        right: 80px;
+        width: 35px;
+        height: 35px;
+       
         cursor: pointer;
     }
 

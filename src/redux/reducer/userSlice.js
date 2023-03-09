@@ -4,24 +4,20 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 export const userSlice = createSlice({
     name: 'user',
     initialState: {
-      name: "",
-      status: 'idle',
-      error: null
+     user: null
     },
     reducers: {
-      setName: (state, action) => {
-        state.name = action.payload
+      login: (state, action) => {
+        state.user = action.payload
       },
+      logout:(state)=>{
+        state.user = null
+      }
     },
-  reducers: {
-    setName: (state, action) => {
-      state.name = action.payload
-    },
-    
-  }
+ 
 })
 
 // Action creators are generated for each case reducer function
-export const { setName } = userSlice.actions
-
+export const { login,logout } = userSlice.actions
+export const selectUser = (state) => state.user.user;
 export default userSlice.reducer
