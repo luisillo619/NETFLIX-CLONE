@@ -8,7 +8,7 @@ import { signOut } from "firebase/auth";
 import db from "@/helpers/firebase";
 import { auth } from "@/helpers/firebase";
 import { collection, query, where, getDocs, doc } from "firebase/firestore";
-import Layout from "@/components/Layout/Layout";
+
 import LoginScreen from "@/components/Login/LoginScreen/LoginScreen";
 import PlansScreen from "@/components/PlansScreen/PlansScreen";
 
@@ -17,45 +17,45 @@ export default function ProfileScreen({ productsDb }) {
   const user = useSelector(selectUser);
 
   return (
-    <Layout>
+    <>
       {!user ? (
         <LoginScreen />
       ) : (
-        <div className={styles.profileScreen}>
+        <>
           <NavBar />
-          <div className={styles.profileScreen__body}>
-            <h1>Edit Profile</h1>
-            <div className={styles.profileScreen__info}>
-              <Image
-                className={styles.profileScreen__avatar}
-                src={netflixAvatar}
-                alt="netflix avatar"
-                placeholder="blur"
-              />
-              <div className={styles.profileScreen__details}>
-                <h2>{user?.email}</h2>
-                <div className={styles.profileScreen__plans}>
-                  <h3>Plans</h3>
-                  <PlansScreen products={productsDb} user={user} />
-                  <button
-                    onClick={(e) => signOut(auth)}
-                    className={styles.profileScreen__signOut}
-                  >
-                    Sign out
-                  </button>
+          <div className={styles.profileScreen}>
+            <div className={styles.profileScreen__body}>
+              <h1>Edit Profile</h1>
+              <div className={styles.profileScreen__info}>
+                <Image
+                  className={styles.profileScreen__avatar}
+                  src={netflixAvatar}
+                  alt="netflix avatar"
+                  placeholder="blur"
+                />
+                <div className={styles.profileScreen__details}>
+                  <h2>{user?.email}</h2>
+                  <div className={styles.profileScreen__plans}>
+                    <h3>Plans</h3>
+                    <PlansScreen products={productsDb} user={user} />
+                    <button
+                      onClick={(e) => signOut(auth)}
+                      className={styles.profileScreen__signOut}
+                    >
+                      Sign out
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </>
       )}
-    </Layout>
+    </>
   );
 }
 
 export async function getServerSideProps() {
-  
-
   try {
     const q = query(collection(db, "products"), where("active", "==", true));
     const querySnapshot = await getDocs(q);

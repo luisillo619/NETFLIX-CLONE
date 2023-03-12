@@ -5,16 +5,14 @@
     opacity: 0.8;
 }
 
-.plansScreen__renewal{
-    
-}
+
 
 .plansScreen__plan:hover {
     opacity: 1;
     transition: all 100ms;
 }
 
-.plansScreen__plan > button {
+.plansScreen__plan>button {
     padding: 10px 20px;
     font-size: 1rem;
     color: #FFF;
@@ -24,8 +22,21 @@
     cursor: pointer;
 }
 
-.plansScreen__plan--disabled > button {
+.plansScreen__plan--disabled>button {
     background-color: gray !important;
     /* pointer-events: none; */
     cursor: not-allowed;
+}
+
+@media screen and (max-width: 768px) {
+    .plansScreen__plan {
+        padding: 10px;
+        flex-wrap: wrap;
+    }
+
+    .plansScreen__plan>button {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+        margin-top: 10px;
+    }
 }

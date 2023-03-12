@@ -1,6 +1,5 @@
-
 import { useSelector } from "react-redux";
-import Layout from "@/components/Layout/Layout";
+
 import axios from "@/helpers/axios";
 import requests from "@/helpers/Request";
 import HomeScreen from "@/components/HomeScreen/HomeScreen";
@@ -11,16 +10,13 @@ export default function Home({ initialMovie }) {
   const user = useSelector(selectUser);
 
   return (
-    <Layout>
-    <div style={{ backgroundColor: "#111" }}>
+    <div>
       {user ? <HomeScreen initialMovie={initialMovie} /> : <LoginScreen />}
     </div>
-    </Layout>
   );
 }
 
 export async function getServerSideProps() {
-
   const { data } = await axios(requests.fetchNetflixOriginals);
   const randomMovieIndex = Math.floor(Math.random() * data.results.length);
   const randomMovie = data.results[randomMovieIndex];

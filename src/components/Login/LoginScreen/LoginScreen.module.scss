@@ -9,7 +9,7 @@ $background-image: url("https://th.bing.com/th/id/R.d2edb29f3f970c36aadecbb01ed0
     height: 100vh;
     background: $background-image center no-repeat;
     background-size: cover;
-
+   
     &__background {
         .loginScreen__logo {
             position: fixed;
@@ -43,6 +43,7 @@ $background-image: url("https://th.bing.com/th/id/R.d2edb29f3f970c36aadecbb01ed0
     }
 
     &__body {
+        max-width: 1280px;
         width: 100%;
         position: absolute;
         top: 26%;
@@ -50,7 +51,7 @@ $background-image: url("https://th.bing.com/th/id/R.d2edb29f3f970c36aadecbb01ed0
         z-index: 1;
         color: #fff;
         padding: 20px;
-       
+
 
         &>h1 {
             font-size: 3.125rem;
@@ -95,4 +96,111 @@ $background-image: url("https://th.bing.com/th/id/R.d2edb29f3f970c36aadecbb01ed0
     border: none;
     font-weight: 600;
     cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .loginScreen {
+        &__background {
+            .loginScreen__logo {
+                width: 120px;
+                height: 75px;
+                left: 30px;
+            }
+
+
+            .loginScreen__button {
+                top: 16px;
+                right: 20px;
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+
+        &__body {
+            top: 20%;
+            padding: 0 20px;
+            &>h1 {
+                font-size: 2.5rem;
+            }
+
+            &>h2 {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+
+            &>h3 {
+                font-size: 1.1rem;
+            }
+
+            .loginScreen__input>form {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 0 10px;
+            }
+
+            .loginScreen__input>form> :not([hidden])~ :not([hidden]) {
+                margin-top: 1rem;
+                background: #e50914;
+            }
+
+            .loginScreen__input>form>input {
+                margin-top: 10px;
+
+                padding: 1.5rem;
+                font-size: 0.9rem;
+                width: 100%;
+            }
+        }
+
+        .loginScreen__getStarted {
+            padding: 12px 16px;
+            font-size: 0.9rem;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .loginScreen {
+
+        &__body {
+            top: 20%;
+
+            &>h1 {
+                font-size: 2.1rem;
+            }
+
+            &>h2 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+
+            &>h3 {
+                font-size: .9rem;
+            }
+
+            .loginScreen__input>form {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .loginScreen__input>form> :not([hidden])~ :not([hidden]) {
+                margin-top: 1rem;
+                background: red;
+            }
+
+            .loginScreen__input>form>input {
+                margin-top: 10px;
+                padding: 1.4rem;
+                font-size: 0.9rem;
+                width: 100%;
+            }
+        }
+
+        .loginScreen__getStarted {
+            padding: 10px 16px;
+            font-size: 0.9rem;
+        }
+    }
 }

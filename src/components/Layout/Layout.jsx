@@ -6,7 +6,8 @@ import { useState } from "react";
 import { login } from "@/redux/reducer/userSlice";
 import { logout } from "@/redux/reducer/userSlice";
 import { useRouter } from "next/router";
-
+import styles from "./Layout.module.scss"
+import Footer from "../Footer/Footer";
 const Layout = ({ children }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
@@ -41,7 +42,9 @@ const Layout = ({ children }) => {
     );
   }
 
-  return <div>{children}</div>;
+  return <div className={styles.layout}>{children}
+  <Footer/>
+  </div>;
 };
 
 export default Layout;
