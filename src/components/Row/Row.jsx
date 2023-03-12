@@ -5,10 +5,8 @@ import Slider from "react-slick";
 
 export default function Row({ title, fetchUrl, isLargeRow = false }) {
   const refRow = useRef(null);
-  const leftArrowRef = useRef(null);
-  const rightArrowRef = useRef(null);
   const [movies, setMovies] = useState([]);
-  const baseUrl = "https://image.tmdb.org/t/p/original";
+  const baseUrl = "https://image.tmdb.org/t/p/w780";
 
   useEffect(() => {
     async function fetchData() {
@@ -20,7 +18,7 @@ export default function Row({ title, fetchUrl, isLargeRow = false }) {
 
   const settings = {
     infinite: true,
-    speed: 900,
+    speed: 600,
     slidesToShow: 5,
     slidesToScroll: 5,
     draggable:true,
