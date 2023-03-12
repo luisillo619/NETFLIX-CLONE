@@ -5,15 +5,18 @@ import { auth } from "@/helpers/firebase";
 import { useState } from "react";
 import { login } from "@/redux/reducer/userSlice";
 import { logout } from "@/redux/reducer/userSlice";
+import { useRouter } from "next/router";
 
 const Layout = ({ children }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
-
+  const router = useRouter();
+  // cuando se loguea o desloguea onAuthStateChange siempre esta escuchando y se ejecuta
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (userAuth) => {
       setLoading(false);
       if (userAuth) {
+        // se agregan los datos del ususario en redux
         dispatch(
           login({
             uid: userAuth.uid,
@@ -21,7 +24,9 @@ const Layout = ({ children }) => {
           })
         );
       } else {
+        // se borran los datos del ususario de redux y se redireccion al home para que cuando se vuelva a logear no entre al profile directamente
         dispatch(logout());
+        router.push("/");
       }
     });
 
@@ -35,8 +40,8 @@ const Layout = ({ children }) => {
       ></div>
     );
   }
-  
-  return <div >{children}</div>;
+
+  return <div>{children}</div>;
 };
 
 export default Layout;

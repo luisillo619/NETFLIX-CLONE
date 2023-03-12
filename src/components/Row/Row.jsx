@@ -1,8 +1,7 @@
 import axios from "../../helpers/axios";
 import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import styles from "./Row.module.scss";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
+import Slider from "react-slick";
 
 export default function Row({ title, fetchUrl, isLargeRow = false }) {
   const refRow = useRef(null);
@@ -19,28 +18,22 @@ export default function Row({ title, fetchUrl, isLargeRow = false }) {
     fetchData();
   }, [fetchUrl]);
 
-  const handleLeftArrowClick = () => {
-    refRow.current.scrollLeft -= refRow.current.offsetWidth;
-  };
-
-  const handleRightArrowClick = () => {
-    refRow.current.scrollLeft += refRow.current.offsetWidth;
+  const settings = {
+    infinite: true,
+    speed: 900,
+    slidesToShow: 5,
+    slidesToScroll: 5,
+    draggable:true,
+    variableWidth: false,
+    variableHigth: false
   };
 
   return (
     <div className={styles.row}>
       <h2>{title}</h2>
 
-      <div className={styles.row__carousel}>
-        <button
-          onClick={handleLeftArrowClick}
-          ref={leftArrowRef}
-          className={styles.row__leftArrow}
-        >
-          <ChevronLeftIcon className={styles.row__iconLeftArrow} />
-        </button>
-
-        <div ref={refRow} className={styles.row__posters}>
+      <div ref={refRow} className={styles.row__posters}>
+        <Slider {...settings}>
           {movies.map(
             (movie) =>
               ((isLargeRow && movie.poster_path) ||
@@ -54,18 +47,11 @@ export default function Row({ title, fetchUrl, isLargeRow = false }) {
                     isLargeRow ? movie.poster_path : movie.backdrop_path
                   }`}
                   alt={movie.name}
+               
                 />
               )
           )}
-        </div>
-
-        <button
-          onClick={handleRightArrowClick}
-          ref={rightArrowRef}
-          className={styles.row__rightArrow}
-        >
-          <ChevronRightIcon className={styles.row__iconRightArrow} />
-        </button>
+        </Slider>
       </div>
     </div>
   );

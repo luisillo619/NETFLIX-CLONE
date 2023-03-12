@@ -20,6 +20,7 @@ export default function Home({ initialMovie }) {
 }
 
 export async function getServerSideProps() {
+
   const { data } = await axios(requests.fetchNetflixOriginals);
   const randomMovieIndex = Math.floor(Math.random() * data.results.length);
   const randomMovie = data.results[randomMovieIndex];

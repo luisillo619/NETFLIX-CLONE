@@ -5,11 +5,15 @@ import netflixAvatar from "../../assets/netflix-avatar.png";
 import { useSelector } from "react-redux";
 import { selectUser } from "@/redux/reducer/userSlice";
 import { signOut } from "firebase/auth";
+import db from "@/helpers/firebase";
 import { auth } from "@/helpers/firebase";
+import { collection, query, where, getDocs, doc } from "firebase/firestore";
 import Layout from "@/components/Layout/Layout";
 import LoginScreen from "@/components/Login/LoginScreen/LoginScreen";
+import PlansScreen from "@/components/PlansScreen/PlansScreen";
 
-export default function ProfileScreen() {
+export default function ProfileScreen({ productsDb }) {
+  // va a estar al tanto de si existe el ususario en redux o no
   const user = useSelector(selectUser);
 
   return (
@@ -31,6 +35,8 @@ export default function ProfileScreen() {
               <div className={styles.profileScreen__details}>
                 <h2>{user?.email}</h2>
                 <div className={styles.profileScreen__plans}>
+                  <h3>Plans</h3>
+                  <PlansScreen products={productsDb} user={user} />
                   <button
                     onClick={(e) => signOut(auth)}
                     className={styles.profileScreen__signOut}
@@ -45,4 +51,46 @@ export default function ProfileScreen() {
       )}
     </Layout>
   );
+}
+
+export async function getServerSideProps() {
+  
+
+  try {
+    const q = query(collection(db, "products"), where("active", "==", true));
+    const querySnapshot = await getDocs(q);
+
+    const products = {};
+    const promises = [];
+
+    querySnapshot.forEach(async (productDoc) => {
+      products[productDoc.id] = productDoc.data();
+      const productDocRef = doc(db, "products", productDoc.id);
+      const pricePromise = getDocs(collection(productDocRef, "prices")).then(
+        (priceSnap) => {
+          priceSnap.forEach((price) => {
+            products[productDoc.id].prices = {
+              priceId: price.id,
+              priceData: price.data(),
+            };
+          });
+        }
+      );
+      promises.push(pricePromise);
+    });
+
+    await Promise.all(promises);
+    return {
+      props: {
+        productsDb: products,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching products and prices:", error);
+    return {
+      props: {
+        productsDb: null,
+      },
+    };
+  }
 }
