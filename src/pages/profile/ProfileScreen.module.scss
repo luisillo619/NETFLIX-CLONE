@@ -25,7 +25,39 @@
 .profileScreen__info{
     display: flex;
 }
+.profileScreen__plans{
+    margin-top: 20px;
+}
+.profileScreen__plans >h3{
+border-bottom: 1px solid #282828;
+padding-bottom: 10px;
+}
+.profileScreen__info >img{
+    height: 100px;
+}
 
+.profileScreen__details{
+    color: white;
+    margin-left: 25px;
+    flex: 1;
+}
+
+.profileScreen__details >h2{
+    background-color: gray;
+    padding: 15px;
+    font-size: 15px;
+    padding-left: 20px;
+}
+.profileScreen__signOut{
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-top: 5%;
+    width: 100%;
+    color: #fff;
+    background-color: #e50914;
+    border: none;
+    cursor: pointer;
+}
 .profileScreen__avatar{
     height: 100px;
     width: 100px;

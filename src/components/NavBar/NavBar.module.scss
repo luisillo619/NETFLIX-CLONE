@@ -4,7 +4,7 @@
     left: 0;
     right: 0;
     width: 100%;
-    height: 80px;
+    height: 70px;
     padding: 10px;
     z-index: 30;
     transition: all 0.5s ease-in;
@@ -20,9 +20,9 @@
 
     .nav__logo {
         position: fixed;
-        top: -12px;
-        left: 45px;
-        width: 150px;
+        top: -15px;
+        left: 53px;
+        width: 115px;
         height: 100px;
         object-fit: contain;
         cursor: pointer;
@@ -31,9 +31,9 @@
     .nav__avatar {
         position: fixed;
         top: 22px;
-        right: 80px;
-        width: 35px;
-        height: 35px;
+        right: 75px;
+        width: 30px;
+        height: 30px;
        
         cursor: pointer;
     }
