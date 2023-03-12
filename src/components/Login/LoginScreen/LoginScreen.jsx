@@ -6,6 +6,7 @@ import SignUpScreen from "../SignupScreen/SignupScreen";
 
 export default function LoginScreen() {
   const [signIn, setSignIn] = useState(false);
+  const [email, setEmail] = useState("");
   return (
     <div className={styles.loginScreen}>
       <div className={styles.loginScreen__background}>
@@ -18,7 +19,7 @@ export default function LoginScreen() {
 
         <button
           className={styles.loginScreen__button}
-          onClick={()=>setSignIn(true)}
+          onClick={() => setSignIn(true)}
         >
           Sign in
         </button>
@@ -26,7 +27,7 @@ export default function LoginScreen() {
       </div>
       <div className={styles.loginScreen__body}>
         {signIn ? (
-          <SignUpScreen />
+          <SignUpScreen email={email}/>
         ) : (
           <>
             <h1>Unlimited Films, Tv programmes and more.</h1>
@@ -37,10 +38,14 @@ export default function LoginScreen() {
             </h3>
             <div className={styles.loginScreen__input}>
               <form>
-                <input type="email" placeholder="Email Adress" />
+                <input
+                  type="email"
+                  placeholder="Email Adress"
+                  onChange={(e)=>setEmail(e.target.value)}
+                />
                 <button
                   className={styles.loginScreen__getStarted}
-                  onClick={()=>setSignIn(true)}
+                  onClick={() => setSignIn(true)}
                 >
                   GET STARTED
                 </button>

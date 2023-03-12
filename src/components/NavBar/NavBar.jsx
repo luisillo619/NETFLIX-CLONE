@@ -17,7 +17,7 @@ export default function NavBar() {
     return () => removeEventListener("scroll", transitionNavBar);
   }, []);
   return (
-    <div className={` ${styles.nav}  ${show && styles.nav__black}`}>
+    <header className={` ${styles.nav}  ${show && styles.nav__black}`}>
       <div className={styles.nav__contents}>
         <Link href="/">
           <Image
@@ -37,6 +37,6 @@ export default function NavBar() {
           />
         </Link>
       </div>
-    </div>
+    </header>
   );
 }
