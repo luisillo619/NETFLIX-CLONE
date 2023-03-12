@@ -95,3 +95,23 @@
         margin-top: 20%;
     }
 }
+
+@media screen and (max-height: 650px) {
+
+    .profileScreen__body>h1 {
+        font-size: 30px;
+
+    }
+
+
+
+    .profileScreen__details {
+
+        margin-top: 10px;
+
+    }
+
+    .profileScreen__signOut {
+        margin-top: 10px;
+    }
+}
