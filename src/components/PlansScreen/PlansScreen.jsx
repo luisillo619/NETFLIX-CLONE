@@ -42,7 +42,7 @@ export default function PlansScreen({ products, user }) {
         success_url: window.location.origin,
         cancel_url: window.location.origin,
       }
-    ); // esto crea una referencia de la compra de la susbcripcion y luego se ejecuta dentro de onSnapshot, si ocurre un error no se guarda, si todo ok, se guarda
+    ); // esto crea una referencia de la compra de la susbcripcion y luego se ejecuta dentro de onSnapshot, si ocurre un error no se guarda, si todo ok, se guarda s
 
     onSnapshot(docRef, async (snap) => {
       // la sesion de la transaccion
