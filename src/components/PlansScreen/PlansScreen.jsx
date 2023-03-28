@@ -22,7 +22,7 @@ export default function PlansScreen({ products, user }) {
 
     onSnapshot(q, (querySnapshot) => {
       querySnapshot.forEach(async (subscription) => {
-        // console.log(subscription.data());
+        console.log(subscription.data());
 
         setSubscription({
           role: subscription.data().role,
@@ -42,7 +42,7 @@ export default function PlansScreen({ products, user }) {
         success_url: window.location.origin,
         cancel_url: window.location.origin,
       }
-    );
+    ); // esto crea una referencia de la compra de la susbcripcion y luego se ejecuta dentro de onSnapshot, si ocurre un error no se guarda, si todo ok, se guarda
 
     onSnapshot(docRef, async (snap) => {
       // la sesion de la transaccion
@@ -91,7 +91,7 @@ export default function PlansScreen({ products, user }) {
             </div>
             <button
               onClick={() =>
-                !isCurrentPackage && handleCheckout(productData.prices.priceId)
+                !isCurrentPackage && handleCheckout(productData?.prices?.priceId)
               }
             >
               {isCurrentPackage ? "Current Package" : "Subscribe"}
