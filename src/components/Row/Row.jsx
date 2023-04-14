@@ -1,8 +1,8 @@
 import axios from "../../helpers/axios";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Row.module.scss";
 import Slider from "react-slick";
-import Image from "next/image";
+
 
 export default function Row({ title, fetchUrl, isLargeRow = false }) {
   
