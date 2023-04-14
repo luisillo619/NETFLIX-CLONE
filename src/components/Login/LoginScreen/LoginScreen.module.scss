@@ -7,24 +7,19 @@ $background-image: url("https://th.bing.com/th/id/R.d2edb29f3f970c36aadecbb01ed0
 .loginScreen {
     position: relative;
     height: 100vh;
+    width: 100%;
     background: $background-image center no-repeat;
     background-size: cover;
    
     &__background {
         .loginScreen__logo {
-            position: fixed;
             width: 160px;
             height: 100px;
-            top: -5px;
-            left: 60px;
             object-fit: cover;
             cursor: pointer;
         }
 
         .loginScreen__button {
-            position: fixed;
-            top: 26px;
-            right: 90px;
             padding: 10px 20px;
             font-size: 1rem;
             color: #fff;
@@ -32,18 +27,9 @@ $background-image: url("https://th.bing.com/th/id/R.d2edb29f3f970c36aadecbb01ed0
             border: none;
             cursor: pointer;
         }
-
-        .loginScreen__gradient {
-            width: 100%;
-            z-index: 1;
-            height: 100vh;
-            background-color: rgba($color: #000000, $alpha: 0.4);
-            background-image: linear-gradient(to top, rgba($color: #000000, $alpha: 0.8) 0, rgba($color: #000000, $alpha: 0) 60%, rgba($color: #000000, $alpha: 0.8) 100%);
-        }
     }
 
     &__body {
-        max-width: 1280px;
         width: 100%;
         position: absolute;
         top: 26%;
@@ -84,8 +70,30 @@ $background-image: url("https://th.bing.com/th/id/R.d2edb29f3f970c36aadecbb01ed0
             max-width: 600px;
             font-size: 1rem;
         }
-
     }
+}
+.loginScreen::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.4) 70%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+.loginScreen__background {
+    position: absolute;
+    z-index: 2;
+    width: 1200px;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    justify-content: space-between;
 }
 
 .loginScreen__getStarted {
@@ -96,6 +104,13 @@ $background-image: url("https://th.bing.com/th/id/R.d2edb29f3f970c36aadecbb01ed0
     border: none;
     font-weight: 600;
     cursor: pointer;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .loginScreen__background {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 768px) {
