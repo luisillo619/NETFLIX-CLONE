@@ -61,7 +61,10 @@
 
 .signupScreen__link {
     cursor: pointer;
-    text-decoration: underline;
+    text-decoration: none;
+    color: white;
+    background: transparent;
+    border: none;
 }
 
 @media screen and (max-width: 350px) {
