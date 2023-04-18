@@ -12,12 +12,10 @@ const mailWelcome = (email) => {
   return {
     from: process.env.EMAIL,
     to: email,
-    subject: "¡Bienvenido a Wancayo Sabor Peruano!",
+    subject: "¡Bienvenido a la Replica de Netflix!",
     html: `
-      <p>Te damos la bienvenida a nuestra familia Wancayo</p>
-      <br />
-      <p><b>Nos encontramos muy felices de que desees hacer parte de nuestra familia.</b></p>
-      <p>Contamos con una amplia gama de productos cosechados de nuestra pachamama para ti, queremos ser sinónimo de calidad y excelentes precios.</p>
+      <p><b>Nos encontramos muy felices de que formes parte de nuestra familia.</b></p>
+      <p>Contamos con una amplia gama de peliculas y series, queremos ser sinónimo de calidad y excelentes precios.</p>
     `,
   };
 };
