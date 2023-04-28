@@ -27,7 +27,6 @@ const Layout = ({ children }) => {
       } else {
         // se borran los datos del ususario de redux y se redireccion al home para que cuando se vuelva a logear no entre al profile directamente
         dispatch(logout());
-        router.push("/");
       }
     });
 
@@ -43,7 +42,7 @@ const Layout = ({ children }) => {
   }
 
   return <div className={styles.layout}>{children}
-  <Footer/>
+  {/* <Footer/> */}
   </div>;
 };
 

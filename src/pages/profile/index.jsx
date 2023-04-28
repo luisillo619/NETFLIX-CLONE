@@ -11,11 +11,17 @@ import { collection, query, where, getDocs, doc } from "firebase/firestore";
 
 import LoginScreen from "@/components/Login/LoginScreen/LoginScreen";
 import PlansScreen from "@/components/PlansScreen/PlansScreen";
+import { useRouter } from "next/router";
 
 export default function ProfileScreen({ productsDb }) {
   // va a estar al tanto de si existe el ususario en redux o no
   const user = useSelector(selectUser);
+  const router = useRouter()
 
+  const handleLogut = async () =>{
+    await signOut(auth)
+    router.push("/")
+  }
   return (
     <>
       {!user ? (
@@ -39,7 +45,8 @@ export default function ProfileScreen({ productsDb }) {
                     <h3>Plans</h3>
                     <PlansScreen products={productsDb} user={user} />
                     <button
-                      onClick={(e) => signOut(auth)}
+                      type="button"
+                      onClick={handleLogut}
                       className={styles.profileScreen__signOut}
                     >
                       Sign out

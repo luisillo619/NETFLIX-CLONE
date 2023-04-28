@@ -1,16 +1,17 @@
 import { auth } from "@/helpers/firebase";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import styles from "./SignupScreen.module.scss";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 // registro
-export default function SignUpScreen({ email }) {
-  const [registerScreen, setRegisterScreen] = useState(true);
-  const [emailState, setEmailState] = useState(email || "");
+export default function SignUpScreen() { 
+  const router = useRouter()
+  const [emailState, setEmailState] = useState("");
   const [passwordState, setPasswordState] = useState("");
   const [error, setError] = useState();
 
@@ -23,6 +24,7 @@ export default function SignUpScreen({ email }) {
     createUserWithEmailAndPassword(auth, emailState, passwordState)
       .then(() => {
         axios.post("/api/nodemailer", { email: emailState });
+        router.push("/")
       })
       .catch((err) => {
         console.log(err);
@@ -32,59 +34,9 @@ export default function SignUpScreen({ email }) {
       });
   };
 
-  const signIn = (e) => {
-    e.preventDefault();
-    if (!emailState || !passwordState) {
-      setError("Error (You must enter the email and password to sign In)");
-      return;
-    }
-    signInWithEmailAndPassword(auth, emailState, passwordState)
-      .then((authUser) => console.log(authUser))
-      .catch((err) => {
-        const inicio = err.message.indexOf(":") + 1;
-
-        const subcadena = err.message.slice(inicio);
-        setError(subcadena);
-      });
-  };
 
   return (
     <>
-      {registerScreen ? (
-        <div className={styles.signupScreen}>
-          <form>
-            <h1>Sign In</h1>
-            <input
-              type="email"
-              placeholder="Email"
-              value={emailState}
-              onChange={(e) => setEmailState(e.target.value)}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              value={passwordState}
-              onChange={(e) => setPasswordState(e.target.value)}
-            />
-            <h3>{error}</h3>
-            <button type="submit" onClick={signIn}>
-              Sign in
-            </button>
-            <h4>
-              <span className={styles.signupScreen__gray}>New to Netflix?</span>
-              <button
-                className={styles.signupScreen__link}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setRegisterScreen(false);
-                }}
-              >
-                Sign Up now.
-              </button>
-            </h4>
-          </form>
-        </div>
-      ) : (
         <div className={styles.signupScreen}>
           <form>
             <h1>Sign Up</h1>
@@ -120,7 +72,7 @@ export default function SignUpScreen({ email }) {
             </h4>
           </form>
         </div>
-      )}
+    
     </>
   );
 }

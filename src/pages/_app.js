@@ -3,6 +3,7 @@ import store from "../redux/store/store";
 import { Provider } from "react-redux";
 import Head from "next/head";
 import Layout from "@/components/Layout/Layout";
+
 export default function App({ Component, pageProps }) {
   return (
     <Provider store={store}>
