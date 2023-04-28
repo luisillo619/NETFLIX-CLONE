@@ -7,7 +7,7 @@ import Slider from "react-slick";
 export default function Row({ title, fetchUrl, isLargeRow = false }) {
   
   const [movies, setMovies] = useState([]);
-  const baseUrl = "https://image.tmdb.org/t/p/w780";
+  const baseUrl = "https://image.tmdb.org/t/p/w342";
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {

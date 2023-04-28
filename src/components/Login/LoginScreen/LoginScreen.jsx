@@ -1,63 +1,55 @@
 import styles from "./LoginScreen.module.scss";
+import Link from "next/link";
 import Image from "next/image";
+import Footer from "../../Footer/Footer";
 import netflixLoginLogo from "../../../assets/netflix-login-logo.png";
-import { useState } from "react";
-import SignUpScreen from "../SignupScreen/SignupScreen";
+
 
 export default function LoginScreen() {
-  const [signIn, setSignIn] = useState(false);
-  const [email, setEmail] = useState("");
-
+ 
   return (
-    <div className={styles.loginScreen}>
-      <div className={styles.loginScreen__container}>
-
-
+    <div className={styles.loginScreen__container}>      
+      <div className={styles.loginScreen}>
         <div className={styles.loginScreen__background}>
+          <button className={styles.button}>
           <Image
             className={styles.loginScreen__logo}
             src={netflixLoginLogo}
             alt="netflix login logo"
             placeholder="blur"
           />
-          <button
-            className={styles.loginScreen__button}
-            onClick={() => setSignIn(true)}
-          >
-            Sign in
           </button>
-          {/* <div className={styles.loginScreen__gradient} /> */}
+
+         <Link className={styles.loginScreen__button} href='http://localhost:3000/signIn'>
+            Sign in        
+         </Link>
         </div>
 
-
         <div className={styles.loginScreen__body}>
-          {signIn ? (
-            <SignUpScreen email={email}/>
-          ) : (
-            <>
-              <h1>Unlimited Films, Tv programmes and more.</h1>
-              <h2>Watch anywhere. Cancel at any time.</h2>
-              <h3>
-                Ready to watch? Enter your email to create or restart your
-                membership.
-              </h3>
-              <div className={styles.loginScreen__input}>
-                <form>
-                  <input
-                    type="email"
-                    placeholder="Email Adress"
-                    onChange={(e)=>setEmail(e.target.value)}
-                  />
-                  <button
-                    className={styles.loginScreen__getStarted}
-                    onClick={() => setSignIn(true)}
-                  >
-                    GET STARTED
-                  </button>
-                </form>
-              </div>
-            </>
-          )}
+          <>
+            <h1>Unlimited Films, Tv programmes and more.</h1>
+            <h2>Watch anywhere. Cancel at any time.</h2>
+            <h3>
+              Ready to watch? Enter your email to create or restart your
+              membership.
+            </h3>
+            <div className={styles.loginScreen__input}>
+              <form>
+                <input
+                  className={styles.form__input}
+                  type="email"
+                  placeholder="Email Adress"                   
+                />
+                  <Link className={styles.loginScreen__getStarted} href='http://localhost:3000/signIn'>
+                    GET STARTED       
+                  </Link>
+              </form>
+            </div>
+          </>
+        </div>
+
+        <div className={styles.loginScreen__footer}>
+          <Footer />
         </div>
       </div>
     </div>

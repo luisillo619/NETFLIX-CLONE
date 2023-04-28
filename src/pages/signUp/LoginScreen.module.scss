@@ -38,7 +38,6 @@ $background-image: url("https://th.bing.com/th/id/R.d2edb29f3f970c36aadecbb01ed0
             .loginScreen__button {
                 font-size: 1rem;
                 color: #fff;
-                text-decoration: none;
                 padding: 10px 20px;
                 background-color: $primary-color;
                 border: none;
@@ -75,7 +74,7 @@ $background-image: url("https://th.bing.com/th/id/R.d2edb29f3f970c36aadecbb01ed0
                 height: 30px;
                 width: 30%;
                 border: none;
-                // max-width: 600px;
+                max-width: 600px;
             }
         }
 
@@ -119,7 +118,6 @@ $background-image: url("https://th.bing.com/th/id/R.d2edb29f3f970c36aadecbb01ed0
 }
 
 .loginScreen__getStarted {
-    text-decoration: none;
     padding: 16.5px 20px;
     font-size: 1rem;
     color: #fff;
@@ -139,7 +137,7 @@ $background-image: url("https://th.bing.com/th/id/R.d2edb29f3f970c36aadecbb01ed0
     .loginScreen {
         &__background {
             .loginScreen__logo {
-                width: 100px;
+                width: 120px;
                 height: 75px;
                 left: 30px;
             }
@@ -148,7 +146,7 @@ $background-image: url("https://th.bing.com/th/id/R.d2edb29f3f970c36aadecbb01ed0
                 top: 16px;
                 right: 20px;
                 padding: 8px 16px;
-                font-size: 0.6rem;
+                font-size: 0.9rem;
             }
         }
 
@@ -182,19 +180,16 @@ $background-image: url("https://th.bing.com/th/id/R.d2edb29f3f970c36aadecbb01ed0
 
             .loginScreen__input>form>input {
                 margin-top: 10px;
+
                 padding: 1.5rem;
                 font-size: 0.9rem;
                 width: 100%;
             }
+        }
 
-            .form__input {
-                border: 1px solid red;
-                width: 600px;
-            }
-            .loginScreen__getStarted {
-                padding: 12px 16px;
-                font-size: 0.9rem;
-            }
+        .loginScreen__getStarted {
+            padding: 12px 16px;
+            font-size: 0.9rem;
         }
     }
 }
@@ -242,9 +237,4 @@ $background-image: url("https://th.bing.com/th/id/R.d2edb29f3f970c36aadecbb01ed0
             font-size: 0.9rem;
         }
     }
-}
-
-.button {
-    background: transparent;
-    border: none;
 }

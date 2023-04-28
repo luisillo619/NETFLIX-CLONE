@@ -8,10 +8,11 @@ import { selectUser } from "@/redux/reducer/userSlice";
 
 export default function Home({ initialMovie }) {
   const user = useSelector(selectUser);
+// http://localhost:3000/
 
   return (
     <div>
-      {user ? <HomeScreen initialMovie={initialMovie} /> : <LoginScreen />}
+      {user ? <HomeScreen initialMovie={initialMovie} /> : <LoginScreen /> }
     </div>
   );
 }

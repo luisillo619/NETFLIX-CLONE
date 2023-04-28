@@ -4,6 +4,7 @@ import netflixLogo from "../../assets/netflix-logo.png";
 import netflixAvatar from "../../assets/netflix-avatar.png";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+
 export default function NavBar() {
   const [show, handleShow] = useState(false);
   const transitionNavBar = () => {
@@ -16,6 +17,7 @@ export default function NavBar() {
     window.addEventListener("scroll", transitionNavBar);
     return () => removeEventListener("scroll", transitionNavBar);
   }, []);
+
   return (
     <header className={` ${styles.nav}  ${show && styles.nav__black}`}>
       <div className={styles.nav__contents}>
