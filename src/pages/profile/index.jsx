@@ -93,7 +93,7 @@ export async function getServerSideProps() {
       },
     };
   } catch (error) {
-    console.error("Error fetching products and prices:", error);
+ 
     return {
       props: {
         productsDb: null,

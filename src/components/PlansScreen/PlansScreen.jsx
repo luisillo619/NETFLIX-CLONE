@@ -22,7 +22,6 @@ export default function PlansScreen({ products, user }) {
 
     onSnapshot(q, (querySnapshot) => {
       querySnapshot.forEach(async (subscription) => {
-        console.log(subscription.data());
 
         setSubscription({
           role: subscription.data().role,
@@ -55,7 +54,7 @@ export default function PlansScreen({ products, user }) {
         // si la sesion de la transaccion exite y no hay fallas entonces:
         // public key
         const stripe = await loadStripe(
-          "pk_test_51MkX1KFYyjM4gsmIJUN0nmiL9sqzwLL9PpPosXnw2yWvSJ004x1IMCcgkYon7zovP12NxJExJgZrNigSkCL1iRfo00bxZN5Pgv"
+          process.env.NEXT_PUBLIC_KEY_STRIPE
         );
         stripe.redirectToCheckout({ sessionId });
       }
