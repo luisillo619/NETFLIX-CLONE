@@ -4,7 +4,6 @@ import Image from "next/image";
 import Footer from "../../Footer/Footer";
 import netflixLoginLogo from "../../../assets/netflix-login-logo.png";
 
-
 export default function LoginScreen() {
  
   return (
@@ -20,7 +19,7 @@ export default function LoginScreen() {
           />
           </button>
 
-         <Link className={styles.loginScreen__button} href='http://localhost:3000/signIn'>
+         <Link className={styles.loginScreen__button} href='/signIn'>
             Sign in        
          </Link>
         </div>
@@ -41,7 +40,7 @@ export default function LoginScreen() {
                   type="email"
                   placeholder="Email Address"                   
                 />
-                  <Link className={styles.loginScreen__getStarted} href='http://localhost:3000/signIn'>
+                  <Link className={styles.loginScreen__getStarted} href='/signIn'>
                     GET STARTED       
                   </Link>
               </form>
@@ -55,4 +54,4 @@ export default function LoginScreen() {
       </div>
     </div>
   );
-}
+};
