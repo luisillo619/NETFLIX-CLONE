@@ -33,12 +33,13 @@ export default function LoginScreen() {
               Ready to watch? Enter your email to create or restart your
               membership.
             </h3>
+
             <div className={styles.loginScreen__input}>
               <form>
                 <input
                   className={styles.form__input}
                   type="email"
-                  placeholder="Email Adress"                   
+                  placeholder="Email Address"                   
                 />
                   <Link className={styles.loginScreen__getStarted} href='http://localhost:3000/signIn'>
                     GET STARTED       
